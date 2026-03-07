@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Urine Analysis - Neural Network Comparison</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Neural Network Architectures for Urine Analysis</h1>
+        <p class="subtitle">Comparing MLP, CNN, and Transformer approaches to medical classification</p>
+    </header>
+
+    <nav class="view-controls">
+        <button data-view="tabbed" class="active">Tabbed View</button>
+        <button data-view="side-by-side">Side by Side</button>
+        <button data-view="all-three">All Three</button>
+        <label class="sync-toggle">
+            <input type="checkbox" id="sync-playback">
+            <span>Sync Playback</span>
+        </label>
+    </nav>
+
+    <div class="tab-bar" id="tab-bar">
+        <button data-tab="mlp" class="active">MLP</button>
+        <button data-tab="cnn">CNN</button>
+        <button data-tab="transformer">Transformer</button>
+    </div>
+
+    <main class="video-panels tabbed" id="video-panels">
+        <!-- MLP Panel -->
+        <section class="panel active" id="panel-mlp" data-arch="mlp">
+            <div class="video-wrapper">
+                <video id="video-mlp" src="media/mlp.mp4" preload="auto" playsinline></video>
+                <div class="controls">
+                    <button class="play-pause" data-video="video-mlp" title="Play/Pause">&#9654;</button>
+                    <button class="step-btn" data-video="video-mlp" data-step="-1" title="Back 1s">-1s</button>
+                    <button class="step-btn" data-video="video-mlp" data-step="1" title="Forward 1s">+1s</button>
+                    <input type="range" class="seek-bar" data-video="video-mlp" min="0" max="1000" value="0">
+                    <span class="time-display" data-video="video-mlp">0:00 / 0:00</span>
+                </div>
+            </div>
+            <article class="explanation">
+                <h3>Multi-Layer Perceptron (MLP)</h3>
+                <p><strong>Best for:</strong> Tabular biomarker data (numeric readings)</p>
+                <ul>
+                    <li><strong>Input:</strong> 5 numeric features (pH, Protein, Glucose, Specific Gravity, Leukocytes)</li>
+                    <li><strong>Architecture:</strong> Fully-connected layers where every neuron connects to every neuron in the next layer</li>
+                    <li><strong>Strengths:</strong> Simple, fast to train, effective for structured tabular data</li>
+                    <li><strong>Limitation:</strong> Cannot capture spatial or sequential patterns in data</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- CNN Panel -->
+        <section class="panel" id="panel-cnn" data-arch="cnn">
+            <div class="video-wrapper">
+                <video id="video-cnn" src="media/cnn.mp4" preload="auto" playsinline></video>
+                <div class="controls">
+                    <button class="play-pause" data-video="video-cnn" title="Play/Pause">&#9654;</button>
+                    <button class="step-btn" data-video="video-cnn" data-step="-1" title="Back 1s">-1s</button>
+                    <button class="step-btn" data-video="video-cnn" data-step="1" title="Forward 1s">+1s</button>
+                    <input type="range" class="seek-bar" data-video="video-cnn" min="0" max="1000" value="0">
+                    <span class="time-display" data-video="video-cnn">0:00 / 0:00</span>
+                </div>
+            </div>
+            <article class="explanation">
+                <h3>Convolutional Neural Network (CNN)</h3>
+                <p><strong>Best for:</strong> Image-based analysis (urine test strip color patterns)</p>
+                <ul>
+                    <li><strong>Input:</strong> Urine test strip image with colored reagent pads</li>
+                    <li><strong>Architecture:</strong> Sliding filters detect local patterns, pooling reduces dimensions, then dense layers classify</li>
+                    <li><strong>Strengths:</strong> Excels at detecting spatial patterns, color gradients, and visual features</li>
+                    <li><strong>Limitation:</strong> Requires image data; less effective for pure numeric inputs</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Transformer Panel -->
+        <section class="panel" id="panel-transformer" data-arch="transformer">
+            <div class="video-wrapper">
+                <video id="video-transformer" src="media/transformer.mp4" preload="auto" playsinline></video>
+                <div class="controls">
+                    <button class="play-pause" data-video="video-transformer" title="Play/Pause">&#9654;</button>
+                    <button class="step-btn" data-video="video-transformer" data-step="-1" title="Back 1s">-1s</button>
+                    <button class="step-btn" data-video="video-transformer" data-step="1" title="Forward 1s">+1s</button>
+                    <input type="range" class="seek-bar" data-video="video-transformer" min="0" max="1000" value="0">
+                    <span class="time-display" data-video="video-transformer">0:00 / 0:00</span>
+                </div>
+            </div>
+            <article class="explanation">
+                <h3>Transformer (Self-Attention)</h3>
+                <p><strong>Best for:</strong> Sequential/longitudinal patient data over time</p>
+                <ul>
+                    <li><strong>Input:</strong> Time-series of biomarker readings across multiple days</li>
+                    <li><strong>Architecture:</strong> Self-attention lets each time point "look at" all others to find relevant patterns</li>
+                    <li><strong>Strengths:</strong> Captures long-range dependencies, finds correlations across time points</li>
+                    <li><strong>Limitation:</strong> Requires more data and compute; overkill for simple tabular inputs</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>NASA Urine Analysis Project &mdash; Neural Network Architecture Comparison</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
