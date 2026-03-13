@@ -1,5 +1,6 @@
 .venv/
 media/
-web/media/*.mp4
+**/web/media/*.mp4
 __pycache__/
 *.pyc
+.DS_Store
