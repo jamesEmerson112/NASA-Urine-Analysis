@@ -15,6 +15,28 @@
 
 ---
 
+### Data Accessibility Assessment (March 2026)
+
+After researching each dataset, the following practical notes should guide the ML team's planning:
+
+**Public and downloadable now:**
+- **OSD-656** and **OSD-571** (Inspiration4): Available at osdr.nasa.gov. However, these contain data from only **4 crew members** across 9 timepoints. Useful for building and testing the pipeline end-to-end, but too small (n=4) for meaningful supervised model training or accuracy claims.
+
+**Access unclear or restricted:**
+- **OSD-343**: Returned a 403 (forbidden) error when accessed via OSDR. May be restricted or not yet publicly released. Needs manual verification with NASA OSDR support.
+- **OSD-586**: Could not be located in public OSDR listings or related publications. May not exist publicly or may be under a different identifier.
+
+**Controlled access (formal application required):**
+- **LSAH (Request ID 10658)**: The only dataset with sufficient sample size for ML (1,517 samples, 581 astronauts) and the exact urine chemistry variables we need. Access requires: (1) university IRB approval, (2) formal NASA data request via nlsp.nasa.gov, (3) review by an LSAH Epidemiologist, and potentially (4) LSAH Advisory Board approval. Estimated timeline: **4–6 months**. The PI should initiate this request as early as possible in Phase 1.
+
+**Action items for the ML team:**
+1. **Immediately**: Begin LSAH data request process through PI (Jai) — this is the critical-path item for the ML work stream.
+2. **Phase 1 fallback**: Build the full ML pipeline using OSD-656/571 data (n=4) to prove the architecture works end-to-end.
+3. **Supplemental data**: Investigate non-NASA public urinalysis/kidney stone datasets (e.g., UCI ML Repository, Kaggle, PhysioNet) that may contain hundreds of samples with overlapping analytes (calcium, creatinine, pH, etc.) to bridge the gap if LSAH access is delayed.
+4. **Synthetic data option**: Generate synthetic urine chemistry samples based on published population distributions from NASA literature as a training data augmentation strategy.
+
+---
+
 ### Recap of What These Resources Represent
 
 The resources above fall into **three categories**, which helps clarify the technical strategy for the project.
