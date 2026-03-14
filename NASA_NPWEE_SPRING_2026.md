@@ -1,5 +1,9 @@
 
-
+---
+source: "NASA NPWEE SPRING 2026 Outline Draft_ Assignments.docx"
+converted: 2026-03-14
+snapshot_note: "Working copy converted from .docx — if the original is updated, diff against this timestamp to resolve merge conflicts."
+---
 
 ──  COVER SHEET  (1 PAGE — NOT COUNTED IN 7-PAGE LIMIT)
 
