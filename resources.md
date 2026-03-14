@@ -64,3 +64,13 @@ First, should the prototype emphasize **physiological interpretation** (for exam
 Second, should the final prototype aim to be **a predictive ML model**, or should it function more like **an intelligent monitoring and reporting system** that assists human medical reviewers?
 
 The answers to those questions will determine whether the project emphasizes biomedical modeling, clinical risk prediction, or health monitoring infrastructure.
+
+---
+
+### Proposal Section Status (James — Computation/ML Team)
+
+| Section | Status | Notes |
+|---------|--------|-------|
+| 2.2 — Technology Concept (Component C) | **Done** | ML classification engine description, dataset references, architecture strategy |
+| 2.6 — Work Plan (Phases 1–3, ML portions) | **Done** | Phase 1: pipeline + LSAH request; Phase 2: MLP→CNN→Transformer with null hypothesis testing; Phase 3: optimization + hardware integration |
+| Other sections (title, problem statement, innovation, challenges, related work, budget, management, NTR) | **Not James's responsibility** | Team-wide or hardware-focused — assigned to other team members |
