@@ -295,15 +295,16 @@ Recommended size: ~3" × 2"  |  Place in top-right of cover page during final la
 
 
 | ▸ Technology concept — what it is and how it works. Describe IMULAS components A, B, and C. Explain integration with ISS WHC/UMS. (James)
- 
- 
- 
- 
- 
- 
- 
- 
-✏ Replace this box with your text. |
+
+*[Components A (Microfluidic Chip) and B (Flow Management) — to be completed by hardware team]*
+
+**Component C — Machine Learning Classification Engine (Computation Team — James)**
+
+The third component of IMULAS is an onboard machine learning engine that receives processed biomarker concentrations from the microfluidic sensing array and produces real-time health classifications for crew review. The ML engine runs locally on an embedded processor integrated with the IMULAS hardware, eliminating dependence on ground-based data links and enabling autonomous health monitoring during communication blackouts or deep-space missions.
+
+The system receives a feature vector of analyte concentrations (e.g., calcium, creatinine, oxalate, citrate, pH) from Component B's signal processing stage. Each sample is normalized against the individual astronaut's pre-flight baseline to account for person-to-person physiological variation. The model then classifies the sample as nominal or anomalous, providing flight surgeons with an immediate health status indicator.
+
+Development follows an incremental architecture strategy. The initial prototype uses a Multi-Layer Perceptron (MLP) for binary health classification, trained on publicly available spaceflight urine biomarker datasets from NASA's Open Science Data Repository, including OSD-656 and OSD-571 (Inspiration4 mission multiplex biomarker panels). The team will also pursue access to the LSAH astronaut urine chemistry dataset (1,517 samples from 581 astronauts covering calcium, oxalate, citrate, magnesium, uric acid, sulfate, phosphate, sodium, potassium, pH, and urine volume), which represents the primary target corpus for model validation. As additional training data becomes available and the target analyte set expands, the team will evaluate Convolutional Neural Network (CNN) and Transformer architectures to capture temporal patterns in longitudinal biomarker sequences. The goal is to scale from binary classification (healthy vs. at-risk) to multi-class health assessments covering conditions detectable through urinalysis, such as renal stone risk, dehydration, and bone mineral loss. The final architecture selection will be driven by classification performance on available astronaut-relevant datasets. |
 | --- |
 
 
@@ -407,29 +408,26 @@ Recommended size: ~4" × 2.5"  |  300 dpi |
 
 
 | ▸ Work plan narrative — Phase 1 (Design & Component Validation, Months 1–4)  What will be designed, simulated, and validated? What is the go/no-go decision criterion?
- 
- 
- 
- 
-✏ Replace this box with your text. |
+
+*[Hardware design, fabrication, and sensor development portions — to be completed by hardware team]*
+
+**ML/Data Work Stream (Computation Team — James):** The ML team begins with a structured learning period to build team competency in neural network architectures (MLP, CNN, Transformer) and biomedical data analysis. In parallel, the team acquires and explores publicly available spaceflight urine biomarker datasets from NASA's Open Science Data Repository, beginning with OSD-656 and OSD-571 (Inspiration4 mission). These datasets are used to build the data ingestion and preprocessing pipeline: cleaning, normalization, feature engineering (e.g., analyte ratios such as calcium/creatinine), and baseline profiling per subject. The team also initiates a formal data access request for the LSAH astronaut urine chemistry dataset (1,517 samples, 581 astronauts) through the NASA Life Sciences Portal, as this controlled-access dataset represents the primary training corpus for model development in Phase 2. **Decision gate:** A functional preprocessing pipeline that produces clean, normalized feature vectors from raw dataset inputs. |
 | --- |
 
 
 | ▸ Work plan narrative — Phase 2 (ML Development & System Integration, Months 5–8)  How will the ML model be trained? What integration tests will be run?
- 
- 
- 
- 
-✏ Replace this box with your text. |
+
+*[Hardware integration and sensor calibration portions — to be completed by hardware team]*
+
+**ML/Data Work Stream (Computation Team — James):** Model development begins with a Multi-Layer Perceptron (MLP) trained for binary health classification (nominal vs. anomalous) using the preprocessed biomarker data. The MLP serves as the baseline architecture. The team then evaluates a Convolutional Neural Network (CNN) to capture local temporal patterns in longitudinal biomarker sequences, followed by a Transformer architecture to model longer-range dependencies across sampling timepoints. Each architecture is evaluated against a null hypothesis that the model's classifications are no better than random chance, with statistical significance assessed at p < 0.05. If the null hypothesis cannot be rejected for a given architecture, the team revisits feature engineering and data augmentation strategies before proceeding. **Decision gate:** At least one architecture must demonstrate statistically significant classification performance (p < 0.05) on a held-out validation set. |
 | --- |
 
 
 | ▸ Work plan narrative — Phase 3 (Prototype Demo & Documentation, Months 9–12)  What is the final prototype demo? What documents and deliverables are produced?
- 
- 
- 
- 
-✏ Replace this box with your text. |
+
+*[Hardware prototype assembly and testing portions — to be completed by hardware team]*
+
+**ML/Data Work Stream (Computation Team — James):** The best-performing architecture from Phase 2 undergoes hyperparameter optimization and is prepared for deployment on the onboard embedded processor. The ML team coordinates with the hardware team to define the input interface: the model must accept processed analyte concentrations in the format and units produced by Component B's signal processing stage. Integration testing verifies that the full pipeline — from sensor concentration output to health classification — runs correctly on the target hardware. The final deliverable is a demonstrated end-to-end prototype classifying simulated urine samples with documented model performance metrics, statistical validation results, and a technical report. |
 | --- |
 
 
